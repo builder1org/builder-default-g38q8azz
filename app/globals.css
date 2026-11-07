@@ -304,8 +304,9 @@ a:hover {
 /* Footer */
 .site-footer {
   margin-top: auto;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border-top: 1px solid #2a2a2a;
+  background: #000000;
+  color: #f5f5f5;
 }
 
 .site-footer__inner {
@@ -329,7 +330,7 @@ a:hover {
 
 .site-footer__tagline {
   margin: 0 0 1.25rem;
-  color: var(--color-muted);
+  color: #b0b0b0;
   font-size: 0.95rem;
   max-width: 36rem;
 }
@@ -342,13 +343,13 @@ a:hover {
 }
 
 .site-footer__links a {
-  color: var(--color-link);
+  color: #e8e8e8;
 }
 
 .site-footer__copy {
   margin: 0;
   font-size: 0.85rem;
-  color: var(--color-muted);
+  color: #949494;
 }
 
 /* Hero */
