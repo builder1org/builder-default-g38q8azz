@@ -12,6 +12,17 @@ const vazirmatn = Vazirmatn({
 export const metadata = {
   title: "پروتئین‌استور | فروشگاه محصولات پروتئینی",
   description: "پودر وی، گینر، اسنک پروتئینی، کراتین و مکمل‌های ورزشی",
+  appleWebApp: {
+    capable: true,
+    title: "پروتئین‌استور",
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#16c04a",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
