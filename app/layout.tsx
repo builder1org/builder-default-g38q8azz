@@ -1,21 +1,27 @@
-import { Inter } from "next/font/google";
+import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
-const inter = Inter({
-  subsets: ["latin"],
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic"],
   display: "swap",
   variable: "--font-sans",
 });
 
 export const metadata = {
-  title: "Website",
-  description: "Customer site built with the website builder",
+  title: "پروتئین‌استور | فروشگاه محصولات پروتئینی",
+  description: "پودر وی، گینر، اسنک پروتئینی، کراتین و مکمل‌های ورزشی",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.variable}>{children}</body>
+    <html lang="fa" dir="rtl">
+      <body className={vazirmatn.variable}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
