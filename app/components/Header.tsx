@@ -11,6 +11,14 @@ const mobileNav = [
   { href: "/about", label: "درباره ما", short: "درباره", icon: "ℹ️" },
 ];
 
+const menuLinks = [
+  { href: "/", label: "خانه" },
+  { href: "/categories/whey-protein", label: "مکمل‌ها" },
+  { href: "/products", label: "پروتئین وی" },
+  { href: "/about", label: "تماس با ما" },
+  { href: "/about", label: "پشتیبانی" },
+];
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
@@ -27,13 +35,33 @@ export function Header() {
 
   return (
     <>
-      <header className="site-header">
-        <div className="site-header__inner">
-          <Link href="/" className="site-logo">
-            <span className="site-logo__mark" aria-hidden>
-              P
-            </span>
-            <span className="site-logo__text">پروتئین‌استور</span>
+      <header className="shop-header">
+        <div className="shop-header__bar">
+          <div className="shop-header__actions">
+            <Link href="/products" className="shop-header__cart" aria-label="سبد خرید">
+              🛒
+            </Link>
+            <Link href="/about" className="shop-header__auth">
+              ورود | ثبت‌نام
+            </Link>
+          </div>
+
+          <form className="shop-search" action="/products" role="search">
+            <input
+              type="search"
+              name="q"
+              className="shop-search__input"
+              placeholder="جستجوی محصول، دسته، برند..."
+              aria-label="جستجو"
+            />
+            <button type="submit" className="shop-search__btn" aria-label="جستجو">
+              🔍
+            </button>
+          </form>
+
+          <Link href="/" className="shop-brand">
+            <span className="shop-brand__title">پروتئین‌استور</span>
+            <span className="shop-brand__sub">مرکز تخصصی مکمل و پروتئین</span>
           </Link>
 
           <button
@@ -46,8 +74,17 @@ export function Header() {
             <span className="site-nav-toggle__bars" aria-hidden />
             <span className="visually-hidden">{menuOpen ? "بستن منو" : "باز کردن منو"}</span>
           </button>
-
         </div>
+
+        <nav className="shop-header__menu" aria-label="منو">
+          <ul>
+            {menuLinks.map((item) => (
+              <li key={item.label}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div
           id={menuId}

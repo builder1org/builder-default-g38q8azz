@@ -18,7 +18,19 @@ export type Product = {
   proteinPerServing?: string;
   featured?: boolean;
   tags: string[];
+  rating?: number;
+  installment?: boolean;
+  expiryLabel?: string;
 };
+
+export function getDiscountPercent(product: Product): number {
+  if (product.compareAtPrice == null || product.compareAtPrice <= product.price) return 0;
+  return Math.round((1 - product.price / product.compareAtPrice) * 100);
+}
+
+export function getProductRating(product: Product): number {
+  return product.rating ?? 4.2;
+}
 
 export const categories: Category[] = [
   {
@@ -74,6 +86,9 @@ export const products: Product[] = [
     proteinPerServing: "۲۴ گرم",
     featured: true,
     tags: ["پرفروش", "وی"],
+    rating: 4.6,
+    installment: true,
+    expiryLabel: "Exp: 12/2028",
   },
   {
     slug: "isolate-vanilla",
@@ -88,6 +103,9 @@ export const products: Product[] = [
     proteinPerServing: "۲۷ گرم",
     featured: true,
     tags: ["ایزوله"],
+    rating: 4.4,
+    installment: true,
+    expiryLabel: "Exp: 06/2028",
   },
   {
     slug: "mass-choco-peanut",
@@ -136,6 +154,9 @@ export const products: Product[] = [
     price: 890000,
     compareAtPrice: 990000,
     categorySlug: "creatine",
+    rating: 4.8,
+    installment: true,
+    expiryLabel: "Exp: 01/2029",
     weight: "۵۰۰ گرم",
     proteinPerServing: "—",
     featured: true,

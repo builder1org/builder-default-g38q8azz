@@ -1,5 +1,6 @@
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+import "./shop.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
@@ -26,7 +27,7 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0a0e0c",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
