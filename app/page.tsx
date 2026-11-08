@@ -35,7 +35,7 @@ export default function Home() {
               همه دسته‌ها
             </Link>
           </div>
-          <div className="category-grid">
+          <div className="category-grid category-grid--mobile-scroll">
             {categories.map((cat) => (
               <CategoryCard
                 key={cat.slug}

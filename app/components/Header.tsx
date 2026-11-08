@@ -4,18 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 
-const nav = [
-  { href: "/", label: "خانه" },
-  { href: "/products", label: "محصولات" },
-  { href: "/categories", label: "دسته‌ها" },
-  { href: "/about", label: "درباره ما" },
-];
-
 const mobileNav = [
-  { href: "/", label: "خانه", short: "خانه" },
-  { href: "/products", label: "همه محصولات", short: "محصولات" },
-  { href: "/categories", label: "دسته‌بندی‌ها", short: "دسته‌ها" },
-  { href: "/about", label: "درباره ما", short: "درباره" },
+  { href: "/", label: "خانه", short: "خانه", icon: "🏠" },
+  { href: "/products", label: "همه محصولات", short: "محصولات", icon: "🛒" },
+  { href: "/categories", label: "دسته‌بندی‌ها", short: "دسته‌ها", icon: "📂" },
+  { href: "/about", label: "درباره ما", short: "درباره", icon: "ℹ️" },
 ];
 
 export function Header() {
@@ -54,15 +47,6 @@ export function Header() {
             <span className="visually-hidden">{menuOpen ? "بستن منو" : "باز کردن منو"}</span>
           </button>
 
-          <nav className="site-nav site-nav--desktop" aria-label="منوی اصلی">
-            <ul className="site-nav__list">
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
 
         <div
@@ -101,6 +85,9 @@ export function Header() {
             return (
               <li key={item.href}>
                 <Link href={item.href} className={active ? "is-active" : undefined}>
+                  <span className="mobile-tab-bar__icon" aria-hidden>
+                    {item.icon}
+                  </span>
                   <span className="mobile-tab-bar__label">{item.short}</span>
                 </Link>
               </li>

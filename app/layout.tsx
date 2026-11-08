@@ -11,10 +11,14 @@ const vazirmatn = Vazirmatn({
 
 export const metadata = {
   title: "پروتئین‌استور | فروشگاه محصولات پروتئینی",
-  description: "پودر وی، گینر، اسنک پروتئینی، کراتین و مکمل‌های ورزشی",
+  description: "فروشگاه موبایل وی، گینر، اسنک پروتئینی، کراتین و مکمل‌های ورزشی",
   appleWebApp: {
     capable: true,
+    statusBarStyle: "black-translucent",
     title: "پروتئین‌استور",
+  },
+  formatDetection: {
+    telephone: true,
   },
 };
 
@@ -28,10 +32,12 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={vazirmatn.variable}>
-        <Header />
-        {children}
-        <Footer />
+      <body className={`${vazirmatn.variable} app-body`}>
+        <div className="app-shell">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
