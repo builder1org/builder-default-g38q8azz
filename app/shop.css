@@ -22,6 +22,8 @@
   --shop-bar-border: #1c2226;
   --search-bar-bg: #5c656b;
   --search-bar-bg-focus: #6a747a;
+  --tab-bar-bg: #5c656b;
+  --tab-bar-border: #6d777d;
 }
 
 html {
@@ -586,16 +588,16 @@ html {
 }
 
 .mobile-tab-bar {
-  background: var(--shop-bar-bg);
-  border-top-color: var(--shop-bar-border);
+  background: var(--tab-bar-bg);
+  border-top: 1px solid var(--tab-bar-border);
 }
 
 .mobile-tab-bar__list a {
-  color: var(--color-muted);
+  color: #e5e7eb;
 }
 
 .mobile-tab-bar__list a.is-active {
-  color: var(--color-accent-dim);
+  color: #fef08a;
 }
 
 .site-footer {

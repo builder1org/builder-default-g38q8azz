@@ -277,8 +277,8 @@ a:hover {
   inset-inline: 0;
   bottom: 0;
   z-index: 45;
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background: var(--tab-bar-bg, #5c656b);
+  border-top: 1px solid var(--tab-bar-border, #6d777d);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
