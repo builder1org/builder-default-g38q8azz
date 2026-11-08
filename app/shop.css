@@ -17,9 +17,9 @@
   --color-hero-glow: rgba(74, 222, 128, 0.12);
   --shop-discount: #f87171;
   --shop-installment: #60a5fa;
-  --shop-bar-bg: #52585c;
-  --shop-bar-bg-muted: #454b4f;
-  --shop-bar-border: #656c71;
+  --shop-bar-bg: #070809;
+  --shop-bar-bg-muted: #050506;
+  --shop-bar-border: #1c2226;
 }
 
 html {
@@ -565,8 +565,8 @@ html {
 }
 
 .mobile-tab-bar {
-  background: var(--color-surface);
-  border-top-color: var(--color-border);
+  background: var(--shop-bar-bg);
+  border-top-color: var(--shop-bar-border);
 }
 
 .mobile-tab-bar__list a {
