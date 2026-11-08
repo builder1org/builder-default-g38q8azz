@@ -270,7 +270,7 @@ a:hover {
   inset-inline: 0;
   bottom: 0;
   z-index: 45;
-  background: #050605;
+  background: var(--color-surface);
   border-top: 1px solid var(--color-border);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }

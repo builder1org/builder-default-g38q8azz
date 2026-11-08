@@ -1,27 +1,27 @@
-/* فروشگاه سبک مرجع — تم روشن، کارت محصول، فیلتر و هدر */
+/* فروشگاه سبک مرجع — تم دارک، کارت محصول، فیلتر و هدر */
 
 :root {
-  --color-bg: #f0f2f5;
-  --color-surface: #ffffff;
-  --color-surface-elevated: #f8f9fa;
-  --color-text: #1f2937;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-link: #16a34a;
-  --color-accent: #22c55e;
-  --color-accent-dim: #15803d;
-  --color-hero-glow: rgba(34, 197, 94, 0.08);
-  --shop-discount: #ef4444;
-  --shop-installment: #3b82f6;
+  --color-bg: #0a0e0c;
+  --color-surface: #141a17;
+  --color-surface-elevated: #1c2420;
+  --color-text: #f0fdf4;
+  --color-muted: #9ca8a2;
+  --color-border: #2d3833;
+  --color-link: #86efac;
+  --color-accent: #4ade80;
+  --color-accent-dim: #22c55e;
+  --color-hero-glow: rgba(74, 222, 128, 0.12);
+  --shop-discount: #f87171;
+  --shop-installment: #60a5fa;
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 @media (min-width: 64rem) {
   .app-body {
-    background: #e5e7eb;
+    background: #000000;
   }
 
   .app-shell {
@@ -68,7 +68,7 @@ html {
   display: block;
   font-weight: 800;
   font-size: 1.05rem;
-  color: #16a34a;
+  color: var(--color-accent);
   letter-spacing: -0.02em;
 }
 
@@ -85,7 +85,7 @@ html {
   border: 1px solid var(--color-border);
   border-radius: 999px;
   overflow: hidden;
-  background: #f9fafb;
+  background: var(--color-surface-elevated);
 }
 
 .shop-search__input {
@@ -146,7 +146,7 @@ html {
 .shop-header__menu {
   display: none;
   border-top: 1px solid var(--color-border);
-  background: #fafafa;
+  background: var(--color-bg);
 }
 
 .shop-header__menu ul {
@@ -306,7 +306,8 @@ html {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 0.5rem 0.65rem;
-  background: #fff;
+  background: var(--color-surface-elevated);
+  color: var(--color-text);
 }
 
 .filter-range {
@@ -343,15 +344,15 @@ html {
   margin-top: 1rem;
   padding: 0.85rem;
   border-radius: var(--radius);
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.35);
   font-size: 0.8rem;
 }
 
 .catalog-filters__promo p {
   margin: 0 0 0.25rem;
   font-weight: 700;
-  color: #1d4ed8;
+  color: var(--shop-installment);
 }
 
 @media (min-width: 56rem) {
@@ -401,7 +402,7 @@ html {
   border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 0.35rem 0.75rem;
-  background: #fff;
+  background: var(--color-surface-elevated);
   font-size: 0.78rem;
   color: var(--color-muted);
   cursor: pointer;
@@ -458,13 +459,13 @@ html {
 
 .shop-card__link:hover {
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .shop-card__media {
   position: relative;
   border-radius: calc(var(--radius) - 2px);
-  background: #f9fafb;
+  background: var(--color-surface-elevated);
   padding: 0.75rem;
   margin-bottom: 0.5rem;
 }
@@ -511,7 +512,7 @@ html {
   border: 1px solid var(--shop-installment);
   color: var(--shop-installment);
   border-radius: 4px;
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .shop-card__title {
@@ -570,12 +571,14 @@ html {
 }
 
 .site-footer {
-  background: #111827;
-  color: #f9fafb;
+  background: #000000;
+  color: #f4faf6;
 }
 
 .hero {
-  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg) 100%);
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -10%, var(--color-hero-glow), transparent),
+    linear-gradient(180deg, #121816 0%, var(--color-bg) 100%);
   border-bottom: 1px solid var(--color-border);
 }
 
