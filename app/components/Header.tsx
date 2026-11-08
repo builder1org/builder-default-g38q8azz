@@ -11,6 +11,24 @@ const mobileNav = [
   { href: "/about", label: "درباره ما", short: "درباره", icon: "ℹ️" },
 ];
 
+function UserIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" />
+    </svg>
+  );
+}
+
 const menuLinks = [
   { href: "/", label: "خانه" },
   { href: "/categories/whey-protein", label: "مکمل‌ها" },
@@ -38,7 +56,10 @@ export function Header() {
       <header className="shop-header">
         <div className="shop-header__bar">
           <div className="shop-header__actions">
-            <Link href="/products" className="shop-header__cart" aria-label="سبد خرید">
+            <Link href="/account" className="shop-header__icon-btn" aria-label="اطلاعات کاربری">
+              <UserIcon />
+            </Link>
+            <Link href="/products" className="shop-header__icon-btn" aria-label="سبد خرید">
               🛒
             </Link>
             <Link href="/about" className="shop-header__auth">
