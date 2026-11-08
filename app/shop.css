@@ -13,6 +13,9 @@
   --color-hero-glow: rgba(74, 222, 128, 0.12);
   --shop-discount: #f87171;
   --shop-installment: #60a5fa;
+  --shop-bar-bg: #52585c;
+  --shop-bar-bg-muted: #454b4f;
+  --shop-bar-border: #656c71;
 }
 
 html {
@@ -35,8 +38,8 @@ html {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--shop-bar-bg);
+  border-bottom: 1px solid var(--shop-bar-border);
   padding-top: env(safe-area-inset-top, 0px);
 }
 
@@ -82,10 +85,10 @@ html {
 .shop-search {
   grid-area: search;
   display: flex;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--shop-bar-border);
   border-radius: 999px;
   overflow: hidden;
-  background: var(--color-surface-elevated);
+  background: var(--color-bg);
 }
 
 .shop-search__input {
@@ -121,7 +124,7 @@ html {
   place-items: center;
   width: var(--touch-min);
   height: var(--touch-min);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--shop-bar-border);
   border-radius: var(--radius);
   text-decoration: none;
   font-size: 1.1rem;
@@ -129,7 +132,7 @@ html {
 
 .shop-header__auth {
   padding: 0.45rem 0.85rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--shop-bar-border);
   border-radius: var(--radius);
   color: var(--color-text);
   font-size: 0.82rem;
@@ -145,8 +148,8 @@ html {
 
 .shop-header__menu {
   display: none;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-bg);
+  border-top: 1px solid var(--shop-bar-border);
+  background: var(--shop-bar-bg-muted);
 }
 
 .shop-header__menu ul {
@@ -571,7 +574,8 @@ html {
 }
 
 .site-footer {
-  background: #000000;
+  background: var(--shop-bar-bg);
+  border-top: 1px solid var(--shop-bar-border);
   color: #f4faf6;
 }
 
