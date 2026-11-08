@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useState } from "react";
+import { Suspense, useEffect, useId, useState } from "react";
+import { ShopSearch } from "./ShopSearch";
 
 const mobileNav = [
   { href: "/", label: "خانه", short: "خانه", icon: "🏠" },
@@ -67,18 +68,24 @@ export function Header() {
             </Link>
           </div>
 
-          <form className="shop-search" action="/products" role="search">
-            <input
-              type="search"
-              name="q"
-              className="shop-search__input"
-              placeholder="جستجوی محصول، دسته، برند..."
-              aria-label="جستجو"
-            />
-            <button type="submit" className="shop-search__btn" aria-label="جستجو">
-              🔍
-            </button>
-          </form>
+          <Suspense
+            fallback={
+              <form className="shop-search" action="/products" method="get" role="search">
+                <input
+                  type="search"
+                  name="q"
+                  className="shop-search__input"
+                  placeholder="جستجوی محصول، دسته، برند..."
+                  aria-label="جستجو"
+                />
+                <button type="submit" className="shop-search__btn" aria-label="جستجو">
+                  🔍
+                </button>
+              </form>
+            }
+          >
+            <ShopSearch />
+          </Suspense>
 
           <Link href="/" className="shop-brand">
             <span className="shop-brand__title">پروتئین‌استور</span>

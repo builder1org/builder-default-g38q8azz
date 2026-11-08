@@ -213,6 +213,34 @@ export function getFeaturedProducts(): Product[] {
   return products.filter((p) => p.featured);
 }
 
+function normalizeForSearch(text: string): string {
+  return text.trim().toLowerCase().replace(/\u200c/g, " ");
+}
+
+export function searchProducts(query: string, source: Product[] = products): Product[] {
+  const normalized = normalizeForSearch(query);
+  if (!normalized) return source;
+
+  const terms = normalized.split(/\s+/).filter(Boolean);
+
+  return source.filter((product) => {
+    const categoryName = getCategory(product.categorySlug)?.name ?? "";
+    const haystack = normalizeForSearch(
+      [
+        product.name,
+        product.shortDescription,
+        product.description,
+        product.flavor ?? "",
+        product.weight,
+        categoryName,
+        ...product.tags,
+      ].join(" "),
+    );
+
+    return terms.every((term) => haystack.includes(term));
+  });
+}
+
 export function formatPrice(toman: number): string {
   return new Intl.NumberFormat("fa-IR").format(toman) + " تومان";
 }

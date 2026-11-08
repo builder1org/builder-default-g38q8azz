@@ -9,9 +9,10 @@ type Props = {
   description?: string;
   breadcrumbs: { href?: string; label: string }[];
   products: Product[];
+  emptyMessage?: string;
 };
 
-export function CatalogPage({ title, description, breadcrumbs, products }: Props) {
+export function CatalogPage({ title, description, breadcrumbs, products, emptyMessage }: Props) {
   return (
     <main className="catalog-page">
       <nav className="breadcrumb breadcrumb--shop" aria-label="مسیر">
@@ -33,7 +34,7 @@ export function CatalogPage({ title, description, breadcrumbs, products }: Props
         <div className="catalog-main">
           <SortToolbar total={products.length} />
           {products.length === 0 ? (
-            <p className="empty-state">محصولی یافت نشد.</p>
+            <p className="empty-state">{emptyMessage ?? "محصولی یافت نشد."}</p>
           ) : (
             <div className="catalog-product-grid">
               {products.map((p) => (
