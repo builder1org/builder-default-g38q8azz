@@ -9,6 +9,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   hanging-punctuation: first last;
+  color-scheme: dark;
 }
 
 body {
@@ -68,16 +69,16 @@ a:hover {
 :root {
   --font-sans: ui-sans-serif, system-ui, sans-serif;
 
-  --color-bg: #16c04a;
-  --color-surface: #0a4522;
-  --color-surface-elevated: #0d5530;
-  --color-text: #f8fff9;
-  --color-muted: #cff7dc;
-  --color-border: #1e8f4a;
-  --color-link: #ffffff;
-  --color-accent: #fef08a;
-  --color-accent-dim: #eab308;
-  --color-hero-glow: rgba(255, 255, 255, 0.22);
+  --color-bg: #0a0e0c;
+  --color-surface: #121816;
+  --color-surface-elevated: #1a221e;
+  --color-text: #f4faf6;
+  --color-muted: #9ca8a2;
+  --color-border: #2a332f;
+  --color-link: #86efac;
+  --color-accent: #4ade80;
+  --color-accent-dim: #22c55e;
+  --color-hero-glow: rgba(74, 222, 128, 0.14);
 
   --space-page: clamp(0.875rem, 4vw, 2rem);
   --max-width: 72rem;
@@ -126,8 +127,8 @@ a:hover {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, #fef08a, #facc15);
-  color: #14532d;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dim));
+  color: #052e16;
   display: grid;
   place-items: center;
   font-weight: 800;
@@ -239,7 +240,7 @@ a:hover {
   inset-inline: 0;
   bottom: 0;
   z-index: 45;
-  background: var(--color-surface);
+  background: #050605;
   border-top: 1px solid var(--color-border);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -355,8 +356,8 @@ a:hover {
 /* Hero */
 .hero {
   background:
-    radial-gradient(ellipse 90% 70% at 50% -15%, var(--color-hero-glow), transparent),
-    linear-gradient(165deg, #1fe05f 0%, var(--color-bg) 45%, #12963b 100%);
+    radial-gradient(ellipse 85% 55% at 50% -10%, var(--color-hero-glow), transparent),
+    linear-gradient(180deg, #151c18 0%, var(--color-bg) 70%);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -484,12 +485,12 @@ a:hover {
 }
 
 .btn--primary {
-  background: var(--color-accent);
-  color: #14532d;
+  background: var(--color-accent-dim);
+  color: #ecfdf5;
 }
 
 .btn--primary:hover {
-  background: color-mix(in srgb, var(--color-accent) 88%, white);
+  background: color-mix(in srgb, var(--color-accent-dim) 82%, white);
 }
 
 .btn--primary:disabled {
