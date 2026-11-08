@@ -36,7 +36,8 @@ export default async function ProductDetailPage({ params }: Props) {
     .slice(0, 3);
 
   return (
-    <main className="site-main site-main--page">
+    <main className="product-page">
+      <div className="product-page__inner">
       <nav className="breadcrumb" aria-label="مسیر">
         <Link href="/">خانه</Link>
         <span aria-hidden>/</span>
@@ -122,6 +123,7 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
         </section>
       )}
+      </div>
     </main>
   );
 }

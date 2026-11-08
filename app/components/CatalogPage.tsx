@@ -15,6 +15,7 @@ type Props = {
 export function CatalogPage({ title, description, breadcrumbs, products, emptyMessage }: Props) {
   return (
     <main className="catalog-page">
+      <div className="catalog-page__inner">
       <nav className="breadcrumb breadcrumb--shop" aria-label="مسیر">
         {breadcrumbs.map((crumb, i) => (
           <span key={`${crumb.label}-${i}`} className="breadcrumb__segment">
@@ -43,6 +44,7 @@ export function CatalogPage({ title, description, breadcrumbs, products, emptyMe
             </div>
           )}
         </div>
+      </div>
       </div>
     </main>
   );
