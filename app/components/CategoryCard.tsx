@@ -5,13 +5,17 @@ type Props = { category: Category; productCount: number };
 
 export function CategoryCard({ category, productCount }: Props) {
   return (
-    <Link href={`/categories/${category.slug}`} className="category-card">
-      <span className="category-card__icon" aria-hidden>
-        {category.icon}
+    <Link
+      href={`/categories/${category.slug}`}
+      className="category-circle"
+      aria-label={`${category.name}، ${productCount} محصول — ${category.description}`}
+    >
+      <span className="category-circle__ring">
+        <span className="category-circle__icon" aria-hidden>
+          {category.icon}
+        </span>
       </span>
-      <h2 className="category-card__title">{category.name}</h2>
-      <p className="category-card__desc">{category.description}</p>
-      <span className="category-card__count">{productCount} محصول</span>
+      <span className="category-circle__title">{category.name}</span>
     </Link>
   );
 }

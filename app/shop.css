@@ -608,7 +608,10 @@ html {
   color: var(--color-text);
 }
 
-.category-card,
+.category-circle__ring {
+  background: var(--color-surface-elevated);
+}
+
 .product-card {
   background: var(--color-surface);
   border-color: var(--color-border);

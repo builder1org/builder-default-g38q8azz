@@ -10,9 +10,9 @@ export default function CategoriesPage() {
     <main className="site-main site-main--page">
       <header className="page-header">
         <h1>دسته‌بندی محصولات</h1>
-        <p>از وی تا ویتامین — هر دسته صفحه جداگانه با لیست محصولات دارد.</p>
+        <p>هر دایره را انتخاب کنید تا محصولات همان دسته نمایش داده شود.</p>
       </header>
-      <div className="category-grid">
+      <div className="category-circles category-circles--page">
         {categories.map((cat) => (
           <CategoryCard
             key={cat.slug}

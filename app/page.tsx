@@ -35,7 +35,8 @@ export default function Home() {
               همه دسته‌ها
             </Link>
           </div>
-          <div className="category-grid category-grid--mobile-scroll">
+          <p className="category-circles__hint">روی هر دایره بزنید تا محصولات همان دسته را ببینید.</p>
+          <div className="category-circles category-circles--scroll">
             {categories.map((cat) => (
               <CategoryCard
                 key={cat.slug}
