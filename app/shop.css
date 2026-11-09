@@ -25,6 +25,8 @@
   --tab-bar-bg: #5c656b;
   --tab-bar-border: #6d777d;
   --product-page-bg: #545b60;
+  --product-detail-bg: #16c04a;
+  --product-detail-bg-deep: #0f9e3a;
 }
 
 html {
@@ -218,7 +220,7 @@ html {
   display: none;
 }
 
-/* صفحه کاتالوگ و جزئیات محصول — پس‌زمینه طوسی */
+/* صفحه لیست محصول — طوسی | جزئیات محصول — سبز پررنگ */
 .catalog-page,
 .product-page {
   width: 100%;
@@ -227,8 +229,40 @@ html {
   padding-inline: max(var(--space-page), calc((100% - 80rem) / 2 + var(--space-page)));
   padding-block: var(--space-page);
   padding-bottom: calc(var(--space-page) + var(--mobile-tab-height) + env(safe-area-inset-bottom, 0px));
-  background: var(--product-page-bg);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.catalog-page {
+  background: var(--product-page-bg);
+}
+
+.product-page {
+  background: linear-gradient(
+    180deg,
+    #1fe66a 0%,
+    var(--product-detail-bg) 40%,
+    var(--product-detail-bg-deep) 100%
+  );
+}
+
+.product-page .breadcrumb,
+.product-page .breadcrumb__current {
+  color: #ecfdf5;
+}
+
+.product-page .breadcrumb a {
+  color: #ffffff;
+}
+
+.product-page h1,
+.product-page .product-detail__short,
+.product-page .product-detail__description,
+.product-page .section__title {
+  color: #f0fdf4;
+}
+
+.product-page .product-detail__note {
+  color: #dcfce7;
 }
 
 .catalog-page__inner,
