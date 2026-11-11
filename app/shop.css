@@ -24,9 +24,7 @@
   --search-bar-bg-focus: #6a747a;
   --tab-bar-bg: #5c656b;
   --tab-bar-border: #6d777d;
-  --product-page-bg: #545b60;
-  --product-detail-bg: #16c04a;
-  --product-detail-bg-deep: #0f9e3a;
+  --product-page-bg: #040506;
 }
 
 html {
@@ -220,7 +218,7 @@ html {
   display: none;
 }
 
-/* صفحه لیست محصول — طوسی | جزئیات محصول — سبز پررنگ */
+/* صفحات محصول — پس‌زمینه دارک */
 .catalog-page,
 .product-page {
   width: 100%;
@@ -232,37 +230,9 @@ html {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.catalog-page {
-  background: var(--product-page-bg);
-}
-
+.catalog-page,
 .product-page {
-  background: linear-gradient(
-    180deg,
-    #1fe66a 0%,
-    var(--product-detail-bg) 40%,
-    var(--product-detail-bg-deep) 100%
-  );
-}
-
-.product-page .breadcrumb,
-.product-page .breadcrumb__current {
-  color: #ecfdf5;
-}
-
-.product-page .breadcrumb a {
-  color: #ffffff;
-}
-
-.product-page h1,
-.product-page .product-detail__short,
-.product-page .product-detail__description,
-.product-page .section__title {
-  color: #f0fdf4;
-}
-
-.product-page .product-detail__note {
-  color: #dcfce7;
+  background: var(--product-page-bg);
 }
 
 .product-detail-extra {
@@ -282,9 +252,9 @@ html {
 .product-detail-meta > span {
   padding: 0.3rem 0.55rem;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.22);
-  color: #ecfdf5;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--color-surface-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
 }
 
 .product-detail-meta__rating {
@@ -316,10 +286,10 @@ html {
 .product-highlights {
   margin: 0;
   padding: 0.85rem 1rem 0.85rem 1.25rem;
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  color: #ecfdf5;
+  color: var(--color-text);
   font-size: 0.88rem;
 }
 
