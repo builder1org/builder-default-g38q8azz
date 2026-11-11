@@ -8,6 +8,7 @@ import {
   products,
 } from "@/lib/data";
 import { ProductCard } from "@/app/components/ProductCard";
+import { ProductDetailExtras } from "@/app/components/ProductDetailExtras";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -113,12 +114,14 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
       </article>
 
+      <ProductDetailExtras product={product} />
+
       {related.length > 0 && (
         <section className="section section--compact">
           <h2 className="section__title">محصولات مرتبط</h2>
-          <div className="product-grid">
+          <div className="catalog-product-grid">
             {related.map((p) => (
-              <ProductCard key={p.slug} product={p} />
+              <ProductCard key={p.slug} product={p} variant="shop" />
             ))}
           </div>
         </section>

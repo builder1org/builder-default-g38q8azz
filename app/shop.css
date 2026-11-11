@@ -265,6 +265,143 @@ html {
   color: #dcfce7;
 }
 
+.product-detail-extra {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.65rem;
+  font-size: 0.78rem;
+}
+
+.product-detail-meta > span {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  color: #ecfdf5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.product-detail-meta__rating {
+  color: #fde047;
+  font-weight: 700;
+}
+
+.product-detail-meta__discount {
+  background: var(--shop-discount);
+  border-color: transparent;
+  color: #fff;
+  font-weight: 700;
+}
+
+.product-detail-meta__installment {
+  border-color: var(--shop-installment);
+  color: #dbeafe;
+}
+
+.stock.in-stock {
+  border-color: #4ade80;
+  color: #bbf7d0;
+}
+
+.stock.out-of-stock {
+  border-color: #f87171;
+}
+
+.product-highlights {
+  margin: 0;
+  padding: 0.85rem 1rem 0.85rem 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  color: #ecfdf5;
+  font-size: 0.88rem;
+}
+
+.product-highlights li {
+  margin-bottom: 0.35rem;
+}
+
+.product-highlights li:last-child {
+  margin-bottom: 0;
+}
+
+.product-accordion {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.product-accordion summary {
+  cursor: pointer;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  list-style: none;
+  touch-action: manipulation;
+}
+
+.product-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.product-panel {
+  padding: 0 1rem 1rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.product-panel p {
+  margin: 0 0 0.65rem;
+  color: var(--color-muted);
+}
+
+.product-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--color-border);
+  text-align: right;
+}
+
+.nutrition-table tr:last-child th,
+.nutrition-table tr:last-child td {
+  border-bottom: none;
+}
+
+.nutrition-table th {
+  font-weight: 500;
+  color: var(--color-muted);
+  width: 48%;
+}
+
+.nutrition-table td {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.line-through {
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
 .catalog-page__inner,
 .product-page__inner {
   width: min(100%, 80rem);

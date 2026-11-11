@@ -21,7 +21,69 @@ export type Product = {
   rating?: number;
   installment?: boolean;
   expiryLabel?: string;
+  brand?: string;
+  sku?: string;
+  inStock?: boolean;
+  ingredients?: string;
+  howToUse?: string;
+  highlights?: string[];
+  nutritionFacts?: { label: string; value: string }[];
 };
+
+export type ProductExtraInfo = {
+  brand: string;
+  sku: string;
+  inStock: boolean;
+  ingredients: string;
+  howToUse: string;
+  highlights: string[];
+  nutritionFacts: { label: string; value: string }[];
+  shipping: string;
+  returnPolicy: string;
+  discount: number;
+  rating: number;
+};
+
+export function getProductExtraInfo(product: Product): ProductExtraInfo {
+  const defaultHighlights = [
+    product.proteinPerServing && product.proteinPerServing !== "—"
+      ? `هر سروینگ حدود ${product.proteinPerServing} پروتئین`
+      : null,
+    product.flavor ? `طعم ${product.flavor}` : null,
+    product.expiryLabel
+      ? `انقضا: ${product.expiryLabel.replace(/^Exp:\s*/i, "")}`
+      : null,
+    "گارانتی اصالت و سلامت بسته‌بندی",
+    product.installment ? "امکان خرید اقساطی" : null,
+  ].filter(Boolean) as string[];
+
+  const nutritionFacts = product.nutritionFacts ?? [
+    { label: "پروتئین (هر سروینگ)", value: product.proteinPerServing ?? "—" },
+    { label: "وزن / بسته", value: product.weight },
+    ...(product.flavor ? [{ label: "طعم", value: product.flavor }] : []),
+    { label: "کشور ساخت (نمونه)", value: "اروپا / آمریکا" },
+    { label: "گواهی (نمونه)", value: "استاندارد GMP" },
+  ];
+
+  return {
+    brand: product.brand ?? "پروتئین‌استور",
+    sku: product.sku ?? `PS-${product.slug.replace(/-/g, "").slice(0, 10).toUpperCase()}`,
+    inStock: product.inStock ?? true,
+    ingredients:
+      product.ingredients ??
+      "مخلوط پروتئین وی، طعم‌دهنده، لسیتین، آنزیم‌های هضم (نمونه). ترکیب دقیق روی برچسب محصول درج شده است.",
+    howToUse:
+      product.howToUse ??
+      "۱ اسکوپ (طبق درج روی بسته) را با ۲۵۰–۳۰۰ میلی‌لیتر آب سرد، شیر یا شیر بادام مخلوط کنید. ترجیحاً بعد از تمرین یا میان‌وعده مصرف شود.",
+    highlights: product.highlights ?? defaultHighlights,
+    nutritionFacts,
+    shipping: "ارسال ۲ تا ۴ روز کاری در تهران؛ ۳ تا ۷ روز در سایر شهرها (پست پیشتاز / تیپاکس)",
+    returnPolicy:
+      "تا ۷ روز پس از تحویل، در صورت سالم بودن پلمپ و بسته‌بندی، امکان مرجوعی طبق قوانین فروشگاه وجود دارد.",
+    discount: getDiscountPercent(product),
+    rating: getProductRating(product),
+  };
+}
 
 export function getDiscountPercent(product: Product): number {
   if (product.compareAtPrice == null || product.compareAtPrice <= product.price) return 0;
@@ -89,6 +151,26 @@ export const products: Product[] = [
     rating: 4.6,
     installment: true,
     expiryLabel: "Exp: 12/2028",
+    brand: "گلد نوتریشن",
+    sku: "PS-GOLD-WHEY-2KG",
+    highlights: [
+      "۲۴ گرم پروتئین در هر اسکوپ",
+      "کم‌چرب، بدون شکر افزوده",
+      "مناسب بعد از تمرین",
+      "حلالیت سریع در آب سرد",
+    ],
+    nutritionFacts: [
+      { label: "پروتئین", value: "۲۴ گرم" },
+      { label: "کربوهیدرات", value: "۳ گرم" },
+      { label: "چربی", value: "۲ گرم" },
+      { label: "کالری تقریبی", value: "۱۲۰ کیلوکالری" },
+      { label: "سروینگ", value: "۱ اسکوپ ≈ ۳۰ گرم" },
+      { label: "تعداد سروینگ", value: "حدود ۶۷" },
+    ],
+    ingredients:
+      "کنسانتره پروتئین وی، کاکائو، طعم‌دهنده طبیعی و مصنوعی، لسیتین سویا، آنزیم لاکتاز، سوکرالوز (شیرین‌کننده).",
+    howToUse:
+      "یک اسکوپ را با ۲۵۰ تا ۳۰۰ میلی‌لیتر آب یا شیر کم‌چرب مخلوط کنید. ۳۰ دقیقه پس از پایان تمرین یا به‌عنوان میان‌وعده پروتئینی استفاده کنید.",
   },
   {
     slug: "isolate-vanilla",
