@@ -56,11 +56,10 @@ html {
   width: min(100% - 2 * var(--space-page), 80rem);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
   grid-template-areas:
-    "brand toggle"
-    "search search"
-    "actions actions";
+    "brand actions"
+    "search search";
   gap: 0.65rem;
   align-items: center;
   padding-block: 0.65rem;
@@ -135,8 +134,10 @@ html {
   grid-area: actions;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-self: end;
 }
 
 .shop-header__icon-btn {
@@ -169,9 +170,8 @@ html {
   white-space: nowrap;
 }
 
-.shop-header__bar .site-nav-toggle {
-  grid-area: toggle;
-  justify-self: end;
+.shop-header__actions .site-nav-toggle {
+  flex-shrink: 0;
 }
 
 .shop-header__menu {
@@ -200,13 +200,21 @@ html {
 
 @media (min-width: 48rem) {
   .shop-header__bar {
-    grid-template-columns: 1fr minmax(12rem, 28rem) auto auto;
-    grid-template-areas: "brand search actions toggle";
+    grid-template-columns: auto minmax(12rem, 1fr) auto;
+    grid-template-areas: "brand search actions";
     gap: 0.75rem 1rem;
+  }
+
+  .shop-brand {
+    justify-self: start;
   }
 
   .shop-header__actions {
     justify-self: end;
+  }
+
+  .shop-header__actions .site-nav-toggle {
+    display: none;
   }
 
   .shop-header__menu {

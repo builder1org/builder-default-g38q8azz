@@ -56,17 +56,10 @@ export function Header() {
     <>
       <header className="shop-header">
         <div className="shop-header__bar">
-          <div className="shop-header__actions">
-            <Link href="/account" className="shop-header__icon-btn" aria-label="اطلاعات کاربری">
-              <UserIcon />
-            </Link>
-            <Link href="/products" className="shop-header__icon-btn" aria-label="سبد خرید">
-              🛒
-            </Link>
-            <Link href="/about" className="shop-header__auth">
-              ورود | ثبت‌نام
-            </Link>
-          </div>
+          <Link href="/" className="shop-brand">
+            <span className="shop-brand__title">پروتئین‌استور</span>
+            <span className="shop-brand__sub">مرکز تخصصی مکمل و پروتئین</span>
+          </Link>
 
           <Suspense
             fallback={
@@ -87,21 +80,27 @@ export function Header() {
             <ShopSearch />
           </Suspense>
 
-          <Link href="/" className="shop-brand">
-            <span className="shop-brand__title">پروتئین‌استور</span>
-            <span className="shop-brand__sub">مرکز تخصصی مکمل و پروتئین</span>
-          </Link>
-
-          <button
-            type="button"
-            className="site-nav-toggle"
-            aria-expanded={menuOpen}
-            aria-controls={menuId}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            <span className="site-nav-toggle__bars" aria-hidden />
-            <span className="visually-hidden">{menuOpen ? "بستن منو" : "باز کردن منو"}</span>
-          </button>
+          <div className="shop-header__actions">
+            <Link href="/account" className="shop-header__icon-btn" aria-label="اطلاعات کاربری">
+              <UserIcon />
+            </Link>
+            <Link href="/products" className="shop-header__icon-btn" aria-label="سبد خرید">
+              🛒
+            </Link>
+            <Link href="/about" className="shop-header__auth">
+              ورود | ثبت‌نام
+            </Link>
+            <button
+              type="button"
+              className="site-nav-toggle"
+              aria-expanded={menuOpen}
+              aria-controls={menuId}
+              onClick={() => setMenuOpen((o) => !o)}
+            >
+              <span className="site-nav-toggle__bars" aria-hidden />
+              <span className="visually-hidden">{menuOpen ? "بستن منو" : "باز کردن منو"}</span>
+            </button>
+          </div>
         </div>
 
         <nav className="shop-header__menu" aria-label="منو">
